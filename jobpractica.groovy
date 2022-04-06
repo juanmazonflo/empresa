@@ -8,7 +8,7 @@ job('job-practica'){
   }
   parameters{
     stringParam('usuario',defaultValue='Juan',description='Nombre del usuario')
-    choiceParam('artista',['Artista 1','Artista 2','Artista 3','Artista 4','Artista 5')
+    choiceParam('artista',['Artista 1','Artista 2','Artista 3','Artista 4','Artista 5'])
     choiceParam('genero',['Rock','Pop','Rap','Jazz','Blues','Country','Folk'])
     booleanParam('auto_reproducir',false)
   }
