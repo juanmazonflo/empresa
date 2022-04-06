@@ -1,4 +1,4 @@
-job('job-practica'){
+job('job-DSL-1'){
   description('Job para nuestra empresa')
   scm{
     git('https://github.com/juanmazonflo/empresa.git','main') { node ->
@@ -17,7 +17,7 @@ job('job-practica'){
     githubPush()
   }
   steps{
-    shell("bash jobparametro.sh")  
+    shell("bash jobscript.sh")  
   }
   publishers{
     mailer('juanmazonpracticasempresa@gmail.com',true,true)
