@@ -1,22 +1,23 @@
 job('job-practica'){
   description('Job para nuestra empresa')
   scm{
-    git('https://github.com/macloujulian/jenkins.job.parametrizado.git','main') { node ->
-      node / gitConfigName('juanmaflo')
+    git('https://github.com/juanmazonflo/empresa.git','main') { node ->
+      node / gitConfigName('juanmazonflo')
       node / gitConfigEmail('juanitocapotillo@gmail.com')
     }
   }
   parameters{
-    stringParam('nombre',defaultValue='Julian',description='Parametro de cadena para el Job Booleano')
-    choiceParam('planeta',['Mercurio','Venus','Tierra','Marte','Jupiter','Saturno','Urano','Neptuno'])
-    booleanParam('agente',false)
+    stringParam('usuario',defaultValue='Juan',description='Nombre del usuario')
+    choiceParam('artista',['Artista 1','Artista 2','Artista 3','Artista 4','Artista 5')
+    choiceParam('genero',['Rock','Pop','Rap','Jazz','Blues','Country','Folk'])
+    booleanParam('auto_reproducir',false)
   }
   triggers{
     cron('H/7 * * * *')
     githubPush()
   }
   steps{
-    shell("bash jobscript.sh")  
+    shell("bash jobparametro.sh")  
   }
   publishers{
     mailer('juanmazonpracticasempresa@gmail.com',true,true)
